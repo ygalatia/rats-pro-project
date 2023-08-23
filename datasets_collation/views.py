@@ -17,7 +17,7 @@ def index(request):
 
                 merge_df = df_1.merge(df_2, on='id', how='left')
 
-                return HttpResponse(df_2.to_string, content_type='text/plain')
+                return HttpResponse(merge_df.to_string, content_type='text/plain')
             else:
                 return HttpResponse('Files must be csv')
     else:
