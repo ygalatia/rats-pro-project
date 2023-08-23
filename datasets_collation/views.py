@@ -20,4 +20,4 @@ def index(request):
                 return HttpResponse('Files must be csv')
     else:
         form = MergeDatasetForm()
-    return render(request, 'read_csv_dataset', {'form': form})
+    return render(request, 'read_csv_datasets.html', {'form': form})
