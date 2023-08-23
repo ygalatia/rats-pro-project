@@ -15,6 +15,8 @@ def index(request):
                 df_1 = pd.read_csv(dataset_1)
                 df_2 = pd.read_csv(dataset_2)
 
+                merge_df = df_1.merge(df_2, on='id', how='left')
+
                 return HttpResponse(df_2.to_string, content_type='text/plain')
             else:
                 return HttpResponse('Files must be csv')
