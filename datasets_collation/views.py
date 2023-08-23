@@ -21,8 +21,13 @@ def index(request):
                 df_2 = df_2[['id', 'btc_a', 'cc_t']]
 
                 merge_df = df_1.merge(df_2, on='id', how='left')
+                renamed_df = merge_df.rename(columns={
+                    'id' : 'client_identifier',
+                    'btc_a' : 'bitcoin_address',
+                    'cc_t' : 'credit_card_type'
+                })
 
-                return HttpResponse(merge_df.to_string, content_type='text/plain')
+                return HttpResponse(renamed_df.to_string, content_type='text/plain')
             else:
                 return HttpResponse('Files must be csv')
     else:
