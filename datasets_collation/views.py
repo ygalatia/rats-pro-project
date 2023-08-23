@@ -14,6 +14,7 @@ def index(request):
 
             if dataset_1.name.endswith('csv') & dataset_2.name.endswith('csv'):
                 df_1 = pd.read_csv(dataset_1)
+                df_1 = filter_by_countries(df_1, selected_countries)
                 df_1 = df_1[['id', 'email']]
 
                 df_2 = pd.read_csv(dataset_2)
@@ -21,9 +22,7 @@ def index(request):
 
                 merge_df = df_1.merge(df_2, on='id', how='left')
 
-                filtered_by_countries_df = filter_by_countries(merge_df, selected_countries)
-
-                return HttpResponse(filtered_by_countries_df.to_string, content_type='text/plain')
+                return HttpResponse(merge_df.to_string, content_type='text/plain')
             else:
                 return HttpResponse('Files must be csv')
     else:
