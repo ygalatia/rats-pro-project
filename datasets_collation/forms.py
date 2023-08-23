@@ -10,6 +10,6 @@ class MergeDatasetForm(forms.Form):
     dataset_2 = forms.FileField(label="Dataset 2")
     countries = forms.MultipleChoiceField(
         choices=COUNTRY_CHOICES,
-        widget=forms.SelectMultiple(attrs={'disabled': 'disabled'}),
+        widget=forms.SelectMultiple(attrs={'class': 'select2-multi'}),
         initial=['Netherlands', 'United Kingdom']
     )
