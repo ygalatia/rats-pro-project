@@ -2,13 +2,23 @@
 <html>
 <head>
     <title>Read CSV Datasets</title>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 </head>
 <body>
     <h2>Upload the first and the second datasets</h2>
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        {{ form.as_p }}
+        {{ form.dataset_1.label_tag }} {{ form.dataset_1 }}
+        {{ form.dataset_2.label_tag }} {{ form.dataset_2 }}
+        {{ form.countries.label_tag }}
+        {{ form.countries }}
         <button type="submit">Upload</button>
     </form>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('.select2-multi').select2();
+    });
+</script>
 </html>
