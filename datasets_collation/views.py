@@ -10,6 +10,7 @@ def index(request):
         if form.is_valid():
             dataset_1 = request.FILES['dataset_1']
             dataset_2 = request.FILES['dataset_2']
+            selected_countries = form.cleaned_data['countries']
 
             if dataset_1.name.endswith('csv') & dataset_2.name.endswith('csv'):
                 df_1 = pd.read_csv(dataset_1)
@@ -17,9 +18,16 @@ def index(request):
 
                 merge_df = df_1.merge(df_2, on='id', how='left')
 
-                return HttpResponse(merge_df.to_string, content_type='text/plain')
+                if len(selected_countries) > 0:
+                    filtered_by_countries_df = filter_by_countries(merge_df, selected_countries)
+                    return HttpResponse(filtered_by_countries_df.to_string, content_type='text/plain')
+                else:
+                    return HttpResponse(merge_df.to_string, content_type='text/plain')
             else:
                 return HttpResponse('Files must be csv')
     else:
         form = MergeDatasetForm()
     return render(request, 'read_csv_datasets.html', {'form': form})
+
+def filter_by_countries(df, selected_countries):
+    return df[df['country'].isin(selected_countries)]
