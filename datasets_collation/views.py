@@ -18,11 +18,8 @@ def index(request):
 
                 merge_df = df_1.merge(df_2, on='id', how='left')
 
-                if len(selected_countries) > 0:
-                    filtered_by_countries_df = filter_by_countries(merge_df, selected_countries)
-                    return HttpResponse(filtered_by_countries_df.to_string, content_type='text/plain')
-                else:
-                    return HttpResponse(merge_df.to_string, content_type='text/plain')
+                filtered_by_countries_df = filter_by_countries(merge_df, selected_countries)
+                return HttpResponse(filtered_by_countries_df.to_string, content_type='text/plain')
             else:
                 return HttpResponse('Files must be csv')
     else:
