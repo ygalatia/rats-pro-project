@@ -1,7 +1,11 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .forms import MergeDatasetForm
+from datetime import datetime
+
 import pandas as pd
+import os
+
 
 # Create your views here.
 def index(request):
@@ -27,7 +31,18 @@ def index(request):
                     'cc_t' : 'credit_card_type'
                 })
 
-                return HttpResponse(renamed_df.to_string, content_type='text/plain')
+                save_path = get_save_path()
+
+                renamed_df.to_csv(save_path)
+
+                response = HttpResponse(
+                    '<script type="text/javascript">'
+                    'alert("Data successfully stored!");'
+                    'window.location.href = window.location.href;'
+                    '</script>'
+                )
+
+                return response
             else:
                 return HttpResponse('Files must be csv')
     else:
@@ -36,3 +51,15 @@ def index(request):
 
 def filter_by_countries(df, selected_countries):
     return df[df['country'].isin(selected_countries)]
+
+def get_save_path():
+    root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    client_data_folder = os.path.join(root_dir, 'client_data')
+    file_path = os.path.join(client_data_folder, generate_file_name())
+    return file_path
+
+def generate_file_name():
+    current_datetime = datetime.now()
+    formatted_datetime = current_datetime.strftime('%Y-%m-%d_%H-%M-%S')
+    file_name = 'client_data_'+formatted_datetime+'.csv'
+    return file_name
