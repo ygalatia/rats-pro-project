@@ -18,5 +18,5 @@ from django.urls import include, path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('datasets_collation/', include('datasets_collation.urls.py'))
+    path('collate/', include('datasets_collation.urls'))
 ]
