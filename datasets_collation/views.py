@@ -78,6 +78,17 @@ def index(request):
     return render(request, 'read_csv_datasets.html', {'form': form})
 
 def filter_by_countries(df, selected_countries):
+    """
+        This function filters the provided Pandas DataFrame based on the list of selected countries.
+        It keeps only the rows where the 'country' column matches one of the selected countries.
+
+        Args:
+            df (pandas.DataFrame): The DataFrame to be filtered.
+            selected_countries (list): A list of country names to filter by.
+
+        Returns:
+            pandas.DataFrame: A filtered DataFrame containing only the rows with selected countries.
+    """
     logger.info(f'removing data outside the specified countries: {selected_countries}')
     return df[df['country'].isin(selected_countries)]
 
