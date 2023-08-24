@@ -153,6 +153,19 @@ def left_merge_dataframe(df_1, df_2):
     return df_1.merge(df_2, on='id', how='left')
 
 def rename_fields(df):
+    """
+    Renaming fields into more descriptive and clearer name.
+    There will be three field renamed:
+    'id' -> 'client_identifier',
+    'btc_a' -> 'bitcoin_address',
+    'cc_t' -> 'credit_card_type'.
+
+    Args:
+        df (Dataframe): The dataframe to be edited.
+
+    Returns:
+        df: Renamed dataframe fields.
+    """
     logger.info('Renaming id, btc_a and cc_t fields')
     return df.rename(columns={
                         'id' : 'client_identifier',
