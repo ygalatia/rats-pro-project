@@ -174,6 +174,15 @@ def rename_fields(df):
                     })
 
 def result_popup(msg):
+    """
+    Generate a popup containing message defined.
+
+    Args:
+        msg (str): The message to display in the popup.
+
+    Returns:
+        HttpResponse: A response containing the popup.
+    """
     return HttpResponse(
                             f'<script type="text/javascript">'
                             f'alert("{msg}");'
