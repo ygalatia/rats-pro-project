@@ -22,3 +22,12 @@ With pandas, several preprocessing such as filtering by country, removing privat
 Then, dataset 2 will be left merged to dataset 1 using `merge` function on `id` field.
 
 Finally, the output of these processes is stored as a csv file to the `client_data` folder in the root directory of the project.
+
+### Run the project using docker (locally)
+To run the project using docker:
+1. Clone the project
+2. In the project's root directory run
+`docker build -t rats-pro-project .`
+3. After command run succesfully, run the docker image
+`docker run -p 8000:8000 rats-pro-project`
+4. Access `http://127.0.0.1:8000/collate/` to access the UI
