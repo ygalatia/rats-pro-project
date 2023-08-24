@@ -93,6 +93,14 @@ def filter_by_countries(df, selected_countries):
     return df[df['country'].isin(selected_countries)]
 
 def get_save_path():
+    """
+    Get the file path for saving the merged dataset.
+    The path is based on the root directory of the project
+    Later, the file will be stored in a folder named 'client_data'.
+
+    Returns:
+        str: The complete file path for saving the merged dataset.
+    """
     root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     logger.info(f'Root directory path: {root_dir}')
     client_data_folder = os.path.join(root_dir, 'client_data')
