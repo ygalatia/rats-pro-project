@@ -126,10 +126,29 @@ def generate_file_name():
     return file_name
 
 def read_csv_as_df(file):
+    """
+    Read a CSV file as a pandas DataFrame.
+
+    Args:
+        file (File): The CSV file to read.
+
+    Returns:
+        DataFrame: The pandas DataFrame containing the CSV data.
+    """
     logger.info(f'read {file} as dataframe')
     return pd.read_csv(file)
 
 def left_merge_dataframe(df_1, df_2):
+    """
+    Left-merge two DataFrames on the 'id' column.
+
+    Args:
+        df_1 (DataFrame): The first DataFrame. This is the dataframe containing the personal information.
+        df_2 (DataFrame): The second DataFrame. This is the dataframe containing the financial information.
+
+    Returns:
+        DataFrame: The merged DataFrame.
+    """
     logger.info('Merge df_1 and df_2 on ID using left-merge')
     return df_1.merge(df_2, on='id', how='left')
 
