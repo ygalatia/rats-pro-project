@@ -32,27 +32,20 @@ def index(request):
             if dataset_1.name.endswith('csv') & dataset_2.name.endswith('csv'):
                 logger.info('Provided datasets are in CSV format. Reading csv dataset as dataframe')
 
-                df_1 = pd.read_csv(dataset_1)
-                logger.info('Dataset 1 stored as dataframe in df_1')
+                df_1 = read_csv_as_df(dataset_1)
                 df_1 = filter_by_countries(df_1, selected_countries)
                 logger.info(f'Clients from {selected_countries} included')
                 df_1 = df_1[['id', 'email']]
                 logger.info('fields containing personal information are removed')
 
-                df_2 = pd.read_csv(dataset_2)
+                df_2 = read_csv_as_df(dataset_2)
                 logger.info('Dataset 2 stored as dataframe in df_2')
                 df_2 = df_2[['id', 'btc_a', 'cc_t']]
                 logger.info('field containing private financial information is removed')
 
-                merge_df = df_1.merge(df_2, on='id', how='left')
-                logger.info('df_1 and df_2 merged')
+                merge_df = left_merge_dataframe(df_1, df_2)
 
-                renamed_df = merge_df.rename(columns={
-                    'id' : 'client_identifier',
-                    'btc_a' : 'bitcoin_address',
-                    'cc_t' : 'credit_card_type'
-                })
-                logger.info('field id, btc_a and cc_t renamed')
+                renamed_df = rename_fields(merge_df)
 
                 save_path = get_save_path()
                 logger.info('save path retrieved')
@@ -60,17 +53,10 @@ def index(request):
                 renamed_df.to_csv(save_path)
                 logger.info(f'output stored in {save_path}')
 
-                response = HttpResponse(
-                    '<script type="text/javascript">'
-                    'alert("Data successfully stored!");'
-                    'window.location.href = window.location.href;'
-                    '</script>'
-                )
-
-                return response
+                return result_popup(f'Data succesfully stored in {save_path}')
             else:
                 logger.error('providing files other than csv')
-                return HttpResponse('Files must be csv')
+                return result_popup('Datasets file must be in CSV')
     else:
         logger.info('Data Collation App invoked')
         form = MergeDatasetForm()
@@ -98,3 +84,27 @@ def generate_file_name():
     file_name = 'client_data_'+formatted_datetime+'.csv'
     logger.info(f'Generated file name: {file_name}')
     return file_name
+
+def read_csv_as_df(file):
+    logger.info(f'read {file} as dataframe')
+    return pd.read_csv(file)
+
+def left_merge_dataframe(df_1, df_2):
+    logger.info('Merge df_1 and df_2 on ID using left-merge')
+    return df_1.merge(df_2, on='id', how='left')
+
+def rename_fields(df):
+    logger.info('Renaming id, btc_a and cc_t fields')
+    return df.rename(columns={
+                        'id' : 'client_identifier',
+                        'btc_a' : 'bitcoin_address',
+                        'cc_t' : 'credit_card_type'
+                    })
+
+def result_popup(msg):
+    return HttpResponse(
+                            f'<script type="text/javascript">'
+                            f'alert("{msg}");'
+                            f'window.location.href = window.location.href;'
+                            f'</script>'
+                        )
