@@ -1,5 +1,5 @@
 from django.test import TestCase
-from .views import read_csv_as_df, filter_by_countries, left_merge_dataframe, rename_fields, generate_file_name, get_save_path
+from .views import read_csv_as_df, filter_by_countries, left_merge_dataframe, rename_fields
 from pandas import DataFrame
 import os
 
