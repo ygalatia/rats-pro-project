@@ -23,5 +23,16 @@ class DatasetCollationTests(TestCase):
         df = read_csv_as_df(csv_file_path)
         self.assertEqual(len(df), 3)
 
+    def test_left_merge_df(self):
+        data_1 = {'id': [1, 2, 3], 'first_name':['Anntoine', 'Brook', 'Casey'], 'country':['France', 'United Kingdom', 'Netherlands']}
+        data_2 = {'id': [1, 2, 3], 'last_name':['Louis', 'Holten', 'van der Poel']}
+        df_1 = DataFrame(data_1)
+        df_2 = DataFrame(data_2)
+
+        merged_df = left_merge_dataframe(df_1, df_2)
+
+        self.assertEqual(list(merged_df.columns), ['id', 'first_name', 'country', 'last_name'])
+ 
+
 
 
