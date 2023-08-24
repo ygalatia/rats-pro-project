@@ -43,15 +43,9 @@ def index(request):
                 df_2 = df_2[['id', 'btc_a', 'cc_t']]
                 logger.info('field containing private financial information is removed')
 
-                merge_df = df_1.merge(df_2, on='id', how='left')
-                logger.info('df_1 and df_2 merged')
+                merge_df = left_merge_dataframe(df_1, df_2)
 
-                renamed_df = merge_df.rename(columns={
-                    'id' : 'client_identifier',
-                    'btc_a' : 'bitcoin_address',
-                    'cc_t' : 'credit_card_type'
-                })
-                logger.info('field id, btc_a and cc_t renamed')
+                renamed_df = rename_fields(merge_df)
 
                 save_path = get_save_path()
                 logger.info('save path retrieved')
@@ -101,3 +95,7 @@ def generate_file_name():
 def read_csv_as_df(file):
     logger.info(f'read {file} as dataframe')
     return pd.read_csv(file)
+
+def left_merge_dataframe(df_1, df_2):
+    logger.info('Merge df_1 and df_2 on ID using left-merge')
+    return df_1.merge(df_2, on='id', how='left')
