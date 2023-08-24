@@ -1,0 +1,83 @@
+INFO 2023-08-24 10:48:09,774 autoreload Watching for file changes with StatReloader
+INFO 2023-08-24 10:48:16,686 views Data Collation App invoked
+INFO 2023-08-24 10:48:16,688 views Returning MergeDatasetForm to main view
+WARNING 2023-08-24 10:48:16,821 log Not Found: /favicon.ico
+INFO 2023-08-24 10:48:28,223 views POST request received to Collate Dataset
+INFO 2023-08-24 10:48:28,223 views Posted form information stored in form object
+INFO 2023-08-24 10:48:28,224 views Required fields is valid. Reading fields value
+INFO 2023-08-24 10:48:28,224 views Dataset 1 stored in dataset_1
+INFO 2023-08-24 10:48:28,224 views Dataset 2 stored in dataset_1
+INFO 2023-08-24 10:48:28,224 views {len(selected_countries)} country/ies selected: {selected_countries}
+INFO 2023-08-24 10:48:28,225 views Provided datasets are in CSV format. Reading csv dataset as dataframe
+INFO 2023-08-24 10:48:28,238 views Dataset 1 stored as dataframe in df_1
+INFO 2023-08-24 10:48:28,238 views removing data outside the specified countries: {selected_countries}
+INFO 2023-08-24 10:48:28,244 views Clients from {selected_countries} included
+INFO 2023-08-24 10:48:28,247 views fields containing personal information are removed
+INFO 2023-08-24 10:48:28,250 views Dataset 2 stored as dataframe in df_2
+INFO 2023-08-24 10:48:28,251 views field containing private financial information is removed
+INFO 2023-08-24 10:48:28,255 views df_1 and df_2 merged
+INFO 2023-08-24 10:48:28,255 views field id, btc_a and cc_t renamed
+INFO 2023-08-24 10:48:28,256 views Root directory path: {root_dir}
+INFO 2023-08-24 10:48:28,256 views fClient Data folder path: {client_data_folder}
+INFO 2023-08-24 10:48:28,256 views Retrived current date time: {current_datetime}
+INFO 2023-08-24 10:48:28,256 views Date time formatted
+INFO 2023-08-24 10:48:28,256 views Generated file name: {file_name}
+INFO 2023-08-24 10:48:28,257 views File name retrieved. File path complete: {file_path}
+INFO 2023-08-24 10:48:28,257 views save path retrieved
+INFO 2023-08-24 10:48:28,261 views output stored in {save_path}
+INFO 2023-08-24 10:48:31,874 views Data Collation App invoked
+INFO 2023-08-24 10:48:31,876 views Returning MergeDatasetForm to main view
+INFO 2023-08-24 10:50:31,264 autoreload D:\Work\Preparation\ABN - Python Developer\rats-pro-project\datasets_collation\views.py changed, reloading.
+INFO 2023-08-24 10:50:31,835 autoreload Watching for file changes with StatReloader
+INFO 2023-08-24 10:50:44,676 views POST request received to Collate Dataset
+INFO 2023-08-24 10:50:44,676 views Posted form information stored in form object
+INFO 2023-08-24 10:50:44,676 views Required fields is valid. Reading fields value
+INFO 2023-08-24 10:50:44,677 views Dataset 1 stored in dataset_1
+INFO 2023-08-24 10:50:44,677 views Dataset 2 stored in dataset_1
+INFO 2023-08-24 10:50:44,677 views {len(selected_countries)} country/ies selected: {selected_countries}
+INFO 2023-08-24 10:50:44,677 views Provided datasets are in CSV format. Reading csv dataset as dataframe
+INFO 2023-08-24 10:50:44,681 views Dataset 1 stored as dataframe in df_1
+INFO 2023-08-24 10:50:44,681 views removing data outside the specified countries: ['Netherlands', 'United Kingdom']
+INFO 2023-08-24 10:50:44,682 views Clients from {selected_countries} included
+INFO 2023-08-24 10:50:44,683 views fields containing personal information are removed
+INFO 2023-08-24 10:50:44,687 views Dataset 2 stored as dataframe in df_2
+INFO 2023-08-24 10:50:44,688 views field containing private financial information is removed
+INFO 2023-08-24 10:50:44,689 views df_1 and df_2 merged
+INFO 2023-08-24 10:50:44,690 views field id, btc_a and cc_t renamed
+INFO 2023-08-24 10:50:44,690 views Root directory path: D:\Work\Preparation\ABN - Python Developer\rats-pro-project
+INFO 2023-08-24 10:50:44,690 views fClient Data folder path: D:\Work\Preparation\ABN - Python Developer\rats-pro-project\client_data
+INFO 2023-08-24 10:50:44,691 views Retrived current date time: 2023-08-24 10:50:44.691133
+INFO 2023-08-24 10:50:44,691 views Date time formatted
+INFO 2023-08-24 10:50:44,691 views Generated file name: client_data_2023-08-24_10-50-44.csv
+INFO 2023-08-24 10:50:44,691 views File name retrieved. File path complete: D:\Work\Preparation\ABN - Python Developer\rats-pro-project\client_data\client_data_2023-08-24_10-50-44.csv
+INFO 2023-08-24 10:50:44,691 views save path retrieved
+INFO 2023-08-24 10:50:44,693 views output stored in D:\Work\Preparation\ABN - Python Developer\rats-pro-project\client_data\client_data_2023-08-24_10-50-44.csv
+INFO 2023-08-24 10:50:46,321 views Data Collation App invoked
+INFO 2023-08-24 10:50:46,322 views Returning MergeDatasetForm to main view
+INFO 2023-08-24 10:52:17,091 autoreload D:\Work\Preparation\ABN - Python Developer\rats-pro-project\datasets_collation\views.py changed, reloading.
+INFO 2023-08-24 10:52:17,597 autoreload Watching for file changes with StatReloader
+INFO 2023-08-24 10:52:34,911 views POST request received to Collate Dataset
+INFO 2023-08-24 10:52:34,911 views Posted form information stored in form object
+INFO 2023-08-24 10:52:34,911 views Required fields is valid. Reading fields value
+INFO 2023-08-24 10:52:34,911 views Dataset 1 stored in dataset_1
+INFO 2023-08-24 10:52:34,912 views Dataset 2 stored in dataset_1
+INFO 2023-08-24 10:52:34,912 views 2 country/ies selected: ['Netherlands', 'United Kingdom']
+INFO 2023-08-24 10:52:34,912 views Provided datasets are in CSV format. Reading csv dataset as dataframe
+INFO 2023-08-24 10:52:34,916 views Dataset 1 stored as dataframe in df_1
+INFO 2023-08-24 10:52:34,918 views removing data outside the specified countries: ['Netherlands', 'United Kingdom']
+INFO 2023-08-24 10:52:34,919 views Clients from ['Netherlands', 'United Kingdom'] included
+INFO 2023-08-24 10:52:34,919 views fields containing personal information are removed
+INFO 2023-08-24 10:52:34,924 views Dataset 2 stored as dataframe in df_2
+INFO 2023-08-24 10:52:34,925 views field containing private financial information is removed
+INFO 2023-08-24 10:52:34,927 views df_1 and df_2 merged
+INFO 2023-08-24 10:52:34,928 views field id, btc_a and cc_t renamed
+INFO 2023-08-24 10:52:34,928 views Root directory path: D:\Work\Preparation\ABN - Python Developer\rats-pro-project
+INFO 2023-08-24 10:52:34,928 views fClient Data folder path: D:\Work\Preparation\ABN - Python Developer\rats-pro-project\client_data
+INFO 2023-08-24 10:52:34,928 views Retrived current date time: 2023-08-24 10:52:34.928500
+INFO 2023-08-24 10:52:34,928 views Date time formatted
+INFO 2023-08-24 10:52:34,928 views Generated file name: client_data_2023-08-24_10-52-34.csv
+INFO 2023-08-24 10:52:34,929 views File name retrieved. File path complete: D:\Work\Preparation\ABN - Python Developer\rats-pro-project\client_data\client_data_2023-08-24_10-52-34.csv
+INFO 2023-08-24 10:52:34,929 views save path retrieved
+INFO 2023-08-24 10:52:34,931 views output stored in D:\Work\Preparation\ABN - Python Developer\rats-pro-project\client_data\client_data_2023-08-24_10-52-34.csv
+INFO 2023-08-24 10:52:37,680 views Data Collation App invoked
+INFO 2023-08-24 10:52:37,681 views Returning MergeDatasetForm to main view
