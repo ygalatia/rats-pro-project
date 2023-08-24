@@ -11,6 +11,20 @@ logger = logging.getLogger(__name__)
 
 # Create your views here.
 def index(request):
+
+    """
+    Main view function for collating datasets.
+
+    Handles the collation process when a POST request is received,
+    and renders the form for GET requests.
+
+    Args:
+        request (HttpRequest): The HTTP request object.
+
+    Returns:
+        HttpResponse: A rendered template or a result popup.
+    """
+
     if request.method == 'POST':
         logger.info('POST request received to Collate Dataset')
 
