@@ -32,6 +32,14 @@ class DatasetCollationTests(TestCase):
         merged_df = left_merge_dataframe(df_1, df_2)
 
         self.assertEqual(list(merged_df.columns), ['id', 'first_name', 'country', 'last_name'])
+
+    def test_rename_fields(self):
+        data = {'id': [1, 2, 3], 'cc_t':['Visa', 'American Express', 'Mastercard'], 'btc_a':['123', '456', '789'], 'country':['France', 'United Kingdom', 'Netherlands']}
+        df = DataFrame(data)
+
+        renamed_df = rename_fields(df)
+
+        self.assertEqual(list(renamed_df.columns), ['client_identifier', 'credit_card_type', 'bitcoin_address', 'country'])
  
 
 
