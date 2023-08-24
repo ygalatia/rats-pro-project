@@ -32,14 +32,13 @@ def index(request):
             if dataset_1.name.endswith('csv') & dataset_2.name.endswith('csv'):
                 logger.info('Provided datasets are in CSV format. Reading csv dataset as dataframe')
 
-                df_1 = pd.read_csv(dataset_1)
-                logger.info('Dataset 1 stored as dataframe in df_1')
+                df_1 = read_csv_as_df(dataset_1)
                 df_1 = filter_by_countries(df_1, selected_countries)
                 logger.info(f'Clients from {selected_countries} included')
                 df_1 = df_1[['id', 'email']]
                 logger.info('fields containing personal information are removed')
 
-                df_2 = pd.read_csv(dataset_2)
+                df_2 = read_csv_as_df(dataset_2)
                 logger.info('Dataset 2 stored as dataframe in df_2')
                 df_2 = df_2[['id', 'btc_a', 'cc_t']]
                 logger.info('field containing private financial information is removed')
@@ -98,3 +97,7 @@ def generate_file_name():
     file_name = 'client_data_'+formatted_datetime+'.csv'
     logger.info(f'Generated file name: {file_name}')
     return file_name
+
+def read_csv_as_df(file):
+    logger.info(f'read {file} as dataframe')
+    return pd.read_csv(file)
