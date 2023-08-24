@@ -110,6 +110,13 @@ def get_save_path():
     return file_path
 
 def generate_file_name():
+    """
+    Get the file name for saving the merged dataset.
+    The file name composed of: client_data_{date_time}.csv
+
+    Returns:
+        str: The complete file name for saving the merged dataset.
+    """
     current_datetime = datetime.now()
     logger.info(f'Retrived current date time: {current_datetime}')
     formatted_datetime = current_datetime.strftime('%Y-%m-%d_%H-%M-%S')
