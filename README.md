@@ -19,4 +19,6 @@ Then, after each field is validated, each dataset is loaded as a dataframe using
 
 With pandas, several preprocessing such as filtering by country, removing private fields, and finally renaming all fields as required.
 
+Then, dataset 2 will be left merged to dataset 1 using `merge` function on `id` field.
+
 Finally, the output of these processes is stored as a csv file to the `client_data` folder in the root directory of the project.
