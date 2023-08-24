@@ -23,7 +23,7 @@ Then, dataset 2 will be left merged to dataset 1 using `merge` function on `id` 
 
 Finally, the output of these processes is stored as a csv file to the `client_data` folder in the root directory of the project.
 
-### Run the project using docker (locally)
+### Clone then Run the project using docker
 To run the project using docker:
 1. Clone the project
 2. In the project's root directory run
@@ -31,3 +31,8 @@ To run the project using docker:
 3. After command run succesfully, run the docker image
 `docker run -p 8000:8000 rats-pro-project`
 4. Access `http://127.0.0.1:8000/collate/` to access the UI
+
+### Pull and Run Docker Images from DockerHub
+To pull and run the project from DockerHub:
+1. Run `docker run -p 8000:8000 yesayagm/rats-pro-project`
+2. Access `http://127.0.0.1:8000/collate/` to access the UI
