@@ -53,17 +53,10 @@ def index(request):
                 renamed_df.to_csv(save_path)
                 logger.info(f'output stored in {save_path}')
 
-                response = HttpResponse(
-                    '<script type="text/javascript">'
-                    'alert("Data successfully stored!");'
-                    'window.location.href = window.location.href;'
-                    '</script>'
-                )
-
-                return response
+                return result_popup(f'Data succesfully stored in {save_path}')
             else:
                 logger.error('providing files other than csv')
-                return HttpResponse('Files must be csv')
+                return result_popup('Datasets file must be in CSV')
     else:
         logger.info('Data Collation App invoked')
         form = MergeDatasetForm()
@@ -107,3 +100,11 @@ def rename_fields(df):
                         'btc_a' : 'bitcoin_address',
                         'cc_t' : 'credit_card_type'
                     })
+
+def result_popup(msg):
+    return HttpResponse(
+                            f'<script type="text/javascript">'
+                            f'alert("{msg}");'
+                            f'window.location.href = window.location.href;'
+                            f'</script>'
+                        )
