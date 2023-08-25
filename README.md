@@ -36,3 +36,10 @@ To run the project using docker:
 To pull and run the project from DockerHub:
 1. Run `docker run -p 8000:8000 yesayagm/rats-pro-project`
 2. Access `http://127.0.0.1:8000/collate/` to access the UI
+
+### Install and import Software Distribution Package
+To install and import the sdist package:
+1. Clone the project or download the sdis file on `https://github.com/ygalatia/rats-pro-project/blob/main/dist/datasets_collation-0.1.tar.gz`
+2. Install the package using pip `pip install path/to/sdist/datasets_collation-0.1.tar.gz`
+3. Import the package in the desired python file or project:
+`import datasets_collation.views as dc` or `from datasets_collation.views import {module/function}`
