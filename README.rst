@@ -10,11 +10,11 @@ This application is able to collate two datasets into one datasets with several 
 Quick start
 -----------
 
-1. Add "rats-pro-collate" to your INSTALLED_APPS setting like this::
+1. Add "datasets_collation" to your INSTALLED_APPS setting like this::
 
     INSTALLED_APPS = [
         ...
-        'rats-pro-collate',
+        'datasets_collation',
     ]
 
 2. Include the datasets_collation URLconf in your project urls.py like this::
