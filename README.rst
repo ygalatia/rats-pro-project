@@ -1,0 +1,26 @@
+=====
+RATS-PRO - Datasets Collation Application
+=====
+
+This application is able to collate two datasets into one datasets with several preprocessing such as:
+1. Filter datasets by countries
+2. Removing personal and sensitive fields
+3. Renaming fields into more descriptive name
+
+Quick start
+-----------
+
+1. Add "rats-pro-collate" to your INSTALLED_APPS setting like this::
+
+    INSTALLED_APPS = [
+        ...
+        'rats-pro-collate',
+    ]
+
+2. Include the datasets_collation URLconf in your project urls.py like this::
+
+    path('datasets_collation/', include('datasets_collation.urls')),
+
+3. Start the development server
+
+4. Visit http://127.0.0.1:8000/collate/ to collate your datasets.
